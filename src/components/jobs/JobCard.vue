@@ -38,10 +38,10 @@
           </div>
           <div class="col small">
             <h6 class="mb-1">Job Type</h6>
-            <p class="text-muted">{{ job.job_type }}</p>
+            <p class="text-muted">{{ job.job_type??'Full Time' }}</p>
           </div>
           <div class="col-sm small">
-            <h6 class="mb-1">Posted on</h6>
+            <h6 class="mb-1">Date</h6>
             <p class="text-muted">{{ job.post_date }}</p>
           </div>
         </div>

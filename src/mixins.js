@@ -8,7 +8,7 @@ export default {
                 },
                 {
                     name: "Jobs",
-                    url: { name: "about" },
+                    url: { name: "home" },
                 },
             ],
         }
