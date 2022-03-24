@@ -17,9 +17,14 @@
       <div class="col-sm-10 col-lg-11">
         <div class="row mb-3 mb-sm-0">
           <div class="col-9">
-            <router-link to="#" class="h5 fw-bold text-decoration-none">
+            <a
+              :href="job.link"
+              target="_blank"
+              rel="noreferrer nofollow"
+              class="h5 fw-bold text-decoration-none"
+            >
               {{ job.title }}
-            </router-link>
+            </a>
           </div>
           <div class="col-3 ms-auto text-end">
             <span class="small fw-bold">
@@ -38,7 +43,7 @@
           </div>
           <div class="col small">
             <h6 class="mb-1">Job Type</h6>
-            <p class="text-muted">{{ job.job_type??'Full Time' }}</p>
+            <p class="text-muted">{{ job.job_type ?? "Full Time" }}</p>
           </div>
           <div class="col-sm small">
             <h6 class="mb-1">Date</h6>
