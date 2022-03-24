@@ -12,6 +12,7 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 import JobCard from "./JobCard.vue";
 import JobSkeleton from "./JobSkeleton.vue";
 export default {
@@ -38,6 +39,22 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    async fetchJobs() {
+      const jobsEndpoint = "https://it-jobs-ke.herokuapp.com/api/jobs";
+      this.loading = true;
+      try {
+        const response = await axios.get(jobsEndpoint);
+        this.jobs = response.data;
+      } catch (error) {
+        console.log(error);
+      }
+      this.loading = false;
+    },
+  },
+  created() {
+    this.fetchJobs();
   },
 };
 </script>

@@ -52,9 +52,14 @@
             </p>
           </div>
           <div class="col-md-4 text-end">
-            <button class="btn btn-primary px-3 text-white">
+            <a
+              :href="job.link"
+              target="_blank"
+              rel="noreferrer nofollow"
+              class="btn btn-primary px-3 text-white"
+            >
               View Listing
-            </button>
+            </a>
           </div>
         </div>
       </div>
