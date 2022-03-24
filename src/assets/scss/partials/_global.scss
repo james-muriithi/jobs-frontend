@@ -1,0 +1,7 @@
+#app {
+    font-family: $font-family;
+}
+.btn:focus,
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
