@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     closeNav() {
-      this.$emit("close");
+      if (this.open) this.$emit("close");
     },
     clickAway(e) {
       if (
