@@ -6,8 +6,9 @@
       tabindex="-1"
       role="dialog"
       aria-labelledby="myModalLabel2"
+      @click="clickAway"
     >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog" role="document" ref="modal_dialog">
         <div class="modal-content p-0">
           <div class="modal-body p-0">
             <div class="text-end p-3">
@@ -28,7 +29,7 @@
 
             <div class="px-3 pb-2 authentication row">
               <div class="col-6">
-                <router-link to="#" class="btn btn-secondary w-100 text-white">
+                <router-link to="#" class="btn btn-primary w-100 text-white">
                   Login
                 </router-link>
               </div>
@@ -43,7 +44,7 @@
 
             <div class="menu p-3">
               <div
-                class="menu-item py-2"
+                class="menu-item py-1"
                 v-for="menu in menus"
                 :key="menu.name"
               >
@@ -62,8 +63,11 @@
 </template>
 
 <script>
+import Mixins from "@/mixins.js";
+
 export default {
   name: "SmallScreenNav",
+  mixins: [Mixins],
   props: {
     open: {
       type: Boolean,
@@ -71,39 +75,24 @@ export default {
     },
   },
   emits: ["close"],
-  data() {
-    return {
-      menus: [
-        {
-          name: "Lease",
-          url: "/",
-        },
-        {
-          name: "Sell/Purchase",
-          url: "/",
-        },
-        {
-          name: "Our Listings",
-          url: "/",
-        },
-        {
-          name: "Secure Investment",
-          url: "/",
-        },
-        {
-          name: "How it works",
-          url: "/",
-        },
-        {
-          name: "About Us",
-          url: "/",
-        },
-      ],
-    };
+  watch: {
+    $route() {
+      this.closeNav();
+    },
   },
   methods: {
     closeNav() {
       this.$emit("close");
+    },
+    clickAway(e) {
+      if (
+        !(
+          this.$refs.modal_dialog === e.target ||
+          this.$refs.modal_dialog.contains(e.target)
+        )
+      ) {
+        this.closeNav();
+      }
     },
   },
 };
@@ -150,6 +139,10 @@ export default {
       .nav-link {
         font-size: 17px;
         color: $nav-link-color;
+        &:hover {
+          color: $primary;
+          font-weight: bold;
+        }
       }
     }
   }

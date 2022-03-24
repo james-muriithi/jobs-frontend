@@ -1,7 +1,8 @@
 
 <template>
   <button
-    :class="`btn ${open ? 'open' : ''}`"
+    class="btn"
+    :class="{ open }"
     type="button"
     data-bs-toggle="collapse"
     data-bs-target="#navbarSupportedContent"
@@ -80,16 +81,10 @@ button {
     top: 15px;
     right: 4px;
   }
-  :nth-child(1) {
-    top: 5px;
-    margin-top: 1px;
-  }
-  :nth-child(2) {
-    width: 40px;
-    top: 13px;
-  }
-  :nth-child(3) {
-    top: 21px;
+  @for $i from 0 through 2 {
+    :nth-child(#{$i + 1}) {
+      top: 7px + ($i * 8);
+    }
   }
   &:focus {
     box-shadow: none;

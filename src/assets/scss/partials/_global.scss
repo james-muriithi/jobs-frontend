@@ -5,3 +5,9 @@
 .navbar-toggler:focus {
     box-shadow: none !important;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

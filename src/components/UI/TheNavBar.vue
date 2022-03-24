@@ -25,23 +25,12 @@
 
 <script>
 import NavBarToggler from "./NavBarToggler.vue";
+import Mixins from '@/mixins.js';
+
 export default {
   components: { NavBarToggler },
   name: "TheNavBar",
-  data() {
-    return {
-      menus: [
-        {
-          name: "Home",
-          url: { name: "home" },
-        },
-        {
-          name: "Jobs",
-          url: { name: "about" },
-        },
-      ],
-    };
-  },
+  mixins: [Mixins],
 };
 </script>
 
