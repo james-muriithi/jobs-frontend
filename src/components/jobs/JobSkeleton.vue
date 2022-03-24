@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="loading-skeleton">
     <div class="row bg-white rounded px-3 py-4 g-0 card-shadow mb-3">
       <div
         class="
@@ -12,47 +12,46 @@
           py-sm-0
         "
       >
-        <JobIcon :size="60" fillColor="#1E8C8C" />
+        <p class="h-60 w-60"></p>
       </div>
       <div class="col-sm-10 col-lg-11">
         <div class="row mb-3 mb-sm-0">
           <div class="col-9">
-            <router-link to="#" class="h5 fw-bold text-decoration-none">
-              {{ job.title }}
-            </router-link>
+            <h5 class="h-20 w-100"></h5>
           </div>
           <div class="col-3 ms-auto text-end">
-            <span class="small fw-bold">
-              {{ job.salary ?? "Ksh Confidential" }}
-            </span>
+            <p class="small fw-bold w-60 h-20 ms-auto"> </p>
           </div>
         </div>
         <div class="row mt-2 col-lg-8 col-xl-6">
           <div class="col small">
             <h6 class="mb-1">Location</h6>
-            <p class="text-muted">{{ job.location }}</p>
+            <p class="">Nairobi</p>
           </div>
           <div class="col small">
             <h6 class="mb-1">Company</h6>
-            <p class="text-muted">{{ job.company }}</p>
+            <p class="">Microsoft</p>
           </div>
           <div class="col small">
             <h6 class="mb-1">Job Type</h6>
-            <p class="text-muted">{{ job.job_type }}</p>
+            <p class="">Fulltime</p>
           </div>
           <div class="col-sm small">
             <h6 class="mb-1">Posted on</h6>
-            <p class="text-muted">{{ job.post_date }}</p>
+            <p class="">22 may 2022</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-8">
             <p class="summary">
-              {{ truncate(job.full_text, 200) }}
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Doloribus debitis ad ipsa, tempora odio, quas id quidem nam
+              similique quae, eveniet illo placeat! Ipsum nihil quis porro error
+              obcaecati voluptatem.
             </p>
           </div>
           <div class="col-md-4 text-end">
-            <button class="btn btn-primary px-3 text-white">
+            <button class="btn btn-primary px-3">
               View Listing
             </button>
           </div>
@@ -63,23 +62,8 @@
 </template>
 
 <script>
-import JobIcon from "vue-material-design-icons/Briefcase.vue";
-
-import { truncate } from "@/utils.js";
 export default {
-  name: "JobCard",
-  props: {
-    job: {
-      reqquired: true,
-      type: Object,
-    },
-  },
-  components: {
-    JobIcon,
-  },
-  methods: {
-    truncate,
-  },
+  name: "JobSkeleton",
 };
 </script>
 
