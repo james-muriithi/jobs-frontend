@@ -86,6 +86,9 @@ button {
       top: 7px + ($i * 8);
     }
   }
+  :nth-child(2) {
+    width: 40px;
+  }
   &:focus {
     box-shadow: none;
   }
